@@ -1,0 +1,23 @@
+{% comment %}
+  MOD by N7U - Wrapped the DIV with the IF-ELSE statement to show External BUY NOW button.
+              - When link is found, the ADD TO CART and BUY NOW buttons will disappear and this button will show instead.
+              - Use Simple Admin app to add custom metafields.
+              - NAMESPACE: CustomExternalLink
+              - KEY: BuyNowLink = enter http link to external site or the word "none" without quotes to disable
+              - KEY: BuyNowText = the text you want customer to see
+{% endcomment %}
+{% if product.metafields.CustomExternalLink.BuyNowLink == blank or product.metafields.CustomExternalLink.BuyNowLink == 'none' %}
+<div class="product-single__cart-submit-wrapper{% if section.settings.enable_payment_button %} product-single__shopify-payment-btn{% endif %}{% if section.settings.add_to_cart_width == 'full_width' %} product-form--full{% endif %}">
+  <button type="submit" name="add" id="AddToCart" class="btn product-single__cart-submit{% if section.settings.add_to_cart_width == 'full_width' %} btn--full{% endif %}{% if section.settings.enable_payment_button %} shopify-payment-btn btn--secondary{% endif %}">
+    <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+  </button>
+  {% if section.settings.enable_payment_button %}
+    {{ form | payment_button }}
+  {% endif %}
+</div>
+{% else %}
+  <a href="{{ product.metafields.CustomExternalLink.BuyNowLink }}"><button class="btn" style="background-color:black; pointer-events: none;"><span>{{ product.metafields.CustomExternalLink.BuyNowText }}</span></button></a>
+{% endif %}
+{% comment %}
+  END MOD by N7U
+{% endcomment %}
