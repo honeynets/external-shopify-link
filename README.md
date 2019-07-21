@@ -29,3 +29,6 @@ STEP 11 Locate the SECTIONS / PRODUCT-TEMPLATE.LIQUID file and click on it so th
 STEP 12
 
 Look for the following code:
+
+STEP 13
+Replace the code above with this code:
