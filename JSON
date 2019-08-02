@@ -1,0 +1,12 @@
+[
+  {"tag":"div","class":"product-single__cart-submit-wrapper{% if section.settings.enable_payment_button %} product-single__shopify-payment-btn{% endif %}{% if section.settings.add_to_cart_width == 'full_width' %} product-form--full{% endif %}","children":[
+      {"tag":"button","type":"submit","name":"add","id":"AddToCart","class":"btn product-single__cart-submit{% if section.settings.add_to_cart_width == 'full_width' %} btn--full{% endif %}{% if section.settings.enable_payment_button %} shopify-payment-btn btn--secondary{% endif %}","children":[
+          {"tag":"span","id":"AddToCartText","html":"{{ 'products.product.add_to_cart' | t }}"}
+        ]}
+    ]},
+  {"tag":"a","href":"{{ product.metafields.CustomExternalLink.BuyNowLink }}","children":[
+      {"tag":"button","class":"btn","style":"background-color:black; pointer-events: none;","children":[
+          {"tag":"span","html":"{{ product.metafields.CustomExternalLink.BuyNowText }}"}
+        ]}
+    ]}
+]
